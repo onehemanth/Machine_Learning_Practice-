@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vendor KYC PDF Extractor</title>
+  <link rel="stylesheet" href="vendor_kyc_styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.6.82/pdf.min.mjs" type="module"></script>
+</head>
+<body>
+  <main class="container">
+    <h1>Vendor / Customer Onboarding Extractor</h1>
+    <p class="subtitle">
+      Upload a single PDF containing GST, Udyam, Aadhaar, PAN, cancelled cheque, etc. The tool extracts likely values, allows human verification, and exports CSV.
+    </p>
+
+    <section class="card">
+      <h2>1) Upload PDF & Extract</h2>
+      <div class="row">
+        <input type="file" id="pdfFile" accept="application/pdf" />
+        <button id="extractBtn">Extract Data</button>
+      </div>
+      <p id="status" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <h2>2) Human Verification</h2>
+      <form id="kycForm" class="grid"></form>
+      <div class="actions">
+        <button id="submitBtn" type="button">Submit & Generate CSV</button>
+        <button id="downloadBtn" type="button" disabled>Download CSV</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3) Output Table</h2>
+      <div class="table-wrap">
+        <table id="outputTable">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="vendor_kyc_app.js"></script>
+</body>
+</html>
